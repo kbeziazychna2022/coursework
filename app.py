@@ -21,7 +21,7 @@ if ENV == 'dev':
 else:
     app.debug = False
     app.config[
-        'SQLALCHEMY_DATABASE_URI'] = ''
+        'SQLALCHEMY_DATABASE_URI'] = 'postgres://xthvqaoemymnzi:448685a97ab38c9ff992e31b9d4dfcd188602fde8b6871c18c7bfc8e953277e8@ec2-54-221-214-3.compute-1.amazonaws.com:5432/d9esk262nma4no'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -73,48 +73,23 @@ class ormSchedule(db.Model):
     #client_fk = relationship("ormClient", uselist=False, back_populates="schedule")
     #queue_fk = relationship("ormQueue", back_populates="schedule")
 
-'''
-db.session.query(ormClient).delete()
-db.session.query(ormHoliday).delete()
-db.session.query(ormPresents).delete()
-Client1 = ormClient(passport_num = 101, age =21 ,name ='alex' ,family_state = 'nmarried',gender = 'male',present_name = 'Smartphone',holiday_name ='Christmas')
-Client2 = ormClient(passport_num = 102, age = 54,name = 'valera',family_state = 'married',gender = 'male',present_name = 'Smartphone',holiday_name = 'Easter')
-Client3 = ormClient(passport_num = 103, age =29 ,name = 'olga',family_state = 'married',gender = 'female',present_name = 'Flowers',holiday_name = 'Christmas')
-Present1 =ormPresents(present_name = 'TV', count_items=5, store_name='Comfy')
-Present2 =ormPresents(present_name='Smartphone', count_items=4, store_name='Comfy')
-Present3 =ormPresents(present_name='Flowers', count_items=3, store_name='Silpo')
-Holiday1 = ormHoliday(holiday_name = 'Christmas', season_year = 'winter')
-Holiday2 = ormHoliday(holiday_name = 'Easter', season_year ='spring' )
-Holiday3 = ormHoliday(holiday_name = 'Womensday', season_year = 'spring')
-Holiday1.clients_.append(Client1)
-Holiday1.clients_.append(Client3)
-Holiday2.clients_.append(Client2)
-Present2.clients__.append(Client1)
-Present2.clients__.append(Client2)
-Present3.clients__.append(Client3)
+Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-23')
+Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-22')
+Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-23')
+Place1 =ormPlace(place_name = 'Library', place_site = 'library@gmail.com', type_of_service='booking book ...')
+Place2 =ormPlace(place_name = 'Hotel', place_site = 'hotel@gmail.com', type_of_service='booking room ...')
+Place3 =ormPlace(place_name = 'Medical Clinic', place_site = 'mc@gmail.com', type_of_service='dr. Mart ...')
+Queue1 = ormQueue(date = '2019-12-23', place_name = 'Library', queue_name = 'Queue1', queue_number = 23, number_of_people = 45, waiting_time ='14:00')
+Queue2 = ormQueue(date = '2019-11-22', place_name = 'Airpoort', queue_name = 'Queue2', queue_number = 2, number_of_people = 23, waiting_time ='10:00')
+Queue3 = ormQueue(date = '2019-08-23', place_name = 'Work', queue_name = 'Queue3', queue_number = 46, number_of_people = 192, waiting_time ='22:00')
+Schedule1 = ormSchedule(date = '2019-12-23', time_in_queue = '00:15', push_notification = 'your queue1')
+Schedule2 = ormSchedule(date = '2019-11-22', time_in_queue = '00:11', push_notification = 'your queue2' )
+Schedule3 = ormSchedule(date = '2019-08-23', time_in_queue = '00:09', push_notification = 'your queue3')
 db.session.add_all([Client1,Client2,Client3])
-db.session.add_all([Present1,Present2,Present3])
-db.session.add_all([Holiday1,Holiday2,Holiday3])
+db.session.add_all([Place1,Place2,Place3])
+db.session.add_all([Queue1,Queue2,Queue3])
+db.session.add_all([Schedule1,Schedule2,Schedule3])
 db.session.commit()
-'''
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @app.route('/')
