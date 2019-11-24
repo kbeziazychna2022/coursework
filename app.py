@@ -71,7 +71,7 @@ class ormSchedule(db.Model):
     push_notification = db.Column(db.String(40), nullable=False)
     #client_fk = relationship("ormClient", uselist=False, back_populates="schedule")
     #queue_fk = relationship("ormQueue", back_populates="schedule")
-'''
+
 Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
 Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
 Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
@@ -88,7 +88,7 @@ db.session.add_all([Client1,Client2,Client3])
 db.session.add_all([Place1,Place2,Place3])
 db.session.add_all([Queue1,Queue2,Queue3])
 db.session.add_all([Schedule1,Schedule2,Schedule3])
-'''
+
 
 
 @app.route('/')
