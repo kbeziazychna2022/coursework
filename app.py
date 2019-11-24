@@ -72,25 +72,25 @@ class ormSchedule(db.Model):
     push_notification = db.Column(db.String(40), nullable=False)
     #client_fk = relationship("ormClient", uselist=False, back_populates="schedule")
     #queue_fk = relationship("ormQueue", back_populates="schedule")
-'''
+
 Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-23')
 Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-22')
 Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-23')
 Place1 =ormPlace(place_name = 'Library', place_site = 'library@gmail.com', type_of_service='booking book ...')
 Place2 =ormPlace(place_name = 'Hotel', place_site = 'hotel@gmail.com', type_of_service='booking room ...')
 Place3 =ormPlace(place_name = 'Medical Clinic', place_site = 'mc@gmail.com', type_of_service='dr. Mart ...')
-Queue1 = ormQueue(date = '2019-12-23', place_name = 'Library', queue_name = 'Queue1', queue_number = 23, number_of_people = 45, waiting_time ='14:00')
-Queue2 = ormQueue(date = '2019-11-22', place_name = 'Airpoort', queue_name = 'Queue2', queue_number = 2, number_of_people = 23, waiting_time ='10:00')
-Queue3 = ormQueue(date = '2019-08-23', place_name = 'Work', queue_name = 'Queue3', queue_number = 46, number_of_people = 192, waiting_time ='22:00')
-Schedule1 = ormSchedule(date = '2019-12-23', time_in_queue = '00:15', push_notification = 'your queue1')
-Schedule2 = ormSchedule(date = '2019-11-22', time_in_queue = '00:11', push_notification = 'your queue2' )
-Schedule3 = ormSchedule(date = '2019-08-23', time_in_queue = '00:09', push_notification = 'your queue3')
+Queue1 = ormQueue(date = '2019-12-21', place_name = 'Library', queue_name = 'Queue1', queue_number = 23, number_of_people = 45, waiting_time ='14:00')
+Queue2 = ormQueue(date = '2019-11-12', place_name = 'Airpoort', queue_name = 'Queue2', queue_number = 2, number_of_people = 23, waiting_time ='10:00')
+Queue3 = ormQueue(date = '2019-08-09', place_name = 'Work', queue_name = 'Queue3', queue_number = 46, number_of_people = 192, waiting_time ='22:00')
+Schedule1 = ormSchedule(date = '2019-09-23', time_in_queue = '00:15', push_notification = 'your queue1')
+Schedule2 = ormSchedule(date = '2019-02-22', time_in_queue = '00:11', push_notification = 'your queue2' )
+Schedule3 = ormSchedule(date = '2019-04-23', time_in_queue = '00:09', push_notification = 'your queue3')
 db.session.add_all([Client1,Client2,Client3])
 db.session.add_all([Place1,Place2,Place3])
 db.session.add_all([Queue1,Queue2,Queue3])
 db.session.add_all([Schedule1,Schedule2,Schedule3])
 db.session.commit()
-'''
+
 
 @app.route('/')
 def index():
