@@ -49,12 +49,12 @@ padding: 10px;
                             <td class="pt-3-half" contenteditable="true">{{row.date}}</td>
                             <td>
                                 <span class="table-delete" ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" >
-                                    <a href="http://127.0.0.1:5000/editClient?client_documents={{ row.client_documents }}">Edit</a></button></span>
+                                    <a href="https://labwork2.herokuapp.com/editClient?client_documents={{ row.client_documents }}">Edit</a></button></span>
                             </td>
                             <td>
                                 <span class="table-delete"><button type="button"
                                                                    class="btn btn-danger btn-rounded btn-sm my-0" >
-                                    <a href="http://127.0.0.1:5000/deleteClient?client_documents={{ row.client_documents }}">Delete</a></button></span>
+                                    <a href="https://labwork2.herokuapp.com/deleteClient?client_documents={{ row.client_documents }}">Delete</a></button></span>
                             </td>
                         </tr>
                     {% endfor %}
@@ -63,7 +63,7 @@ padding: 10px;
                     </tbody>
                 </table>
             <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" allign="center">
-                                    <a href="http://127.0.0.1:5000/createClient">Create</a></button></span>
+                                    <a href="https://labwork2.herokuapp.com/createClient">Create</a></button></span>
             </div>
         </div>
     </div>
