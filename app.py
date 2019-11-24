@@ -73,9 +73,9 @@ class ormSchedule(db.Model):
     #client_fk = relationship("ormClient", uselist=False, back_populates="schedule")
     #queue_fk = relationship("ormQueue", back_populates="schedule")
 
-Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-23')
-Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-22')
-Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-23')
+Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
+Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
+Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
 Place1 =ormPlace(place_name = 'Library', place_site = 'library@gmail.com', type_of_service='booking book ...')
 Place2 =ormPlace(place_name = 'Airport', place_site = 'hotel@gmail.com', type_of_service='booking room ...')
 Place3 =ormPlace(place_name = 'Work', place_site = 'mc@gmail.com', type_of_service='dr. Mart ...')
