@@ -381,7 +381,7 @@ def edit_Schedule():
         form.push_notification.data = schedule.push_notification
 
         return render_template ('EditSchedule.html', form=form, form_name="Edit Schedule",
-                                action="editSchedule?date=" + schedule.date)
+                                action="editSchedule?date=" + 'schedule.date')
     else:
 
         if form.validate () == False:
