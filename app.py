@@ -246,6 +246,34 @@ def create_Schedule():
 
     return render_template('CreateSchedule.html', form=form, form_name="New Schedule", action="createSchedule")
 
+@app.route('/createCountry', methods=['GET', 'POST'])
+def create_Country():
+    form = CreateCountry()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            return render_template('CreateCountry.html', form=form, form_name="New Country", action="createCountry")
+        else:
+
+            ids = db.session.query(ormSchedule).all()
+            check = True
+            for row in ids:
+                if row.date == form.date.data:
+                    check = False
+
+            new_var = ormSchedule(
+                date=form.date.data,
+                time_in_queue=form.time_in_queue.data,
+                push_notification=form.push_notification.data
+
+            )
+            if check:
+                db.session.add(new_var)
+                db.session.commit()
+                return redirect(url_for('all_Schedule'))
+
+    return render_template('CreateSchedule.html', form=form, form_name="New Schedule", action="createSchedule")
+
 @app.route('/createQueue', methods=['GET', 'POST'])
 def create_Queue():
     form = CreateQueue()
