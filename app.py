@@ -427,9 +427,9 @@ def edit_Client():
 def edit_Country():
     form = EditCountry()
     name = request.args.get('name')
-    if request.method == 'GET':
+    country = db.session.query (ormCountry).filter (ormCountry.name == name).one ()
 
-        country = db.session.query(ormCountry).filter(ormCountry.name == name).one_or_none()
+    if request.method == 'GET':
 
         form.name.data = country.name
         form.population.data = country.population
