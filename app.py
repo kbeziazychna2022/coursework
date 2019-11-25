@@ -129,9 +129,9 @@ def all_Place():
 
 @app.route('/get')
 def insert():
-    Country1 = ormCountry (name='Ukraine', population=45342344, goverment='Goverment1', location='123.23.23, 52.45.67')
-    Country2 = ormCountry (name='Germany', population=43456789, goverment='Goverment2', location='134.12.45, 23.12.56')
-    Country3 = ormCountry (name='Norway', population=12342344, goverment='Goverment3', location='23.12.43, 45.45.78')
+    Country1 = ormCountry (name='Ukraine', population=45342344, goverment='Goverment1', location='123.23.23, 52.45.67', client_documents='HR129083')
+    Country2 = ormCountry (name='Germany', population=43456789, goverment='Goverment2', location='134.12.45, 23.12.56', client_documents='HR453209')
+    Country3 = ormCountry (name='Norway', population=12342344, goverment='Goverment3', location='23.12.43, 45.45.78', client_documents='HR675408')
     db.session.add_all ([Country1, Country2, Country3])
 
     return render_template ('allCountry.html', name=name, Country=Country, action="/get")
