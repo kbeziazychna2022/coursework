@@ -14,8 +14,21 @@ from form.Schedule import CreateSchedule, EditSchedule
 from form.Country import EditCountry, CreateCountry
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:modern23@localhost/Kate'
+
+ENV = 'prod'
+
+
+if ENV == 'dev':
+    app.debug = True
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:modern23@localhost/Kate'
+else:
+    app.debug = False
+    app.config[
+        'SQLALCHEMY_DATABASE_URI'] = 'postgres://olybrqlidxaxav:2eb0145422dfcbfbb9a7eebe63b33e020faf436668263d8fe5361d4f0d30ec33@ec2-23-21-70-39.compute-1.amazonaws.com:5432/d4bmafbki74av3'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
 
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
