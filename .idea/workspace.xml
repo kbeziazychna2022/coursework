@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a9edbb8-9d87-4874-b9d1-d2f0f0309153" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="383" column="64" selection-start-line="383" selection-start-column="64" selection-end-line="383" selection-end-column="64" />
+            <state relative-caret-position="90">
+              <caret line="384" column="9" lean-forward="true" selection-start-line="384" selection-start-column="9" selection-end-line="384" selection-end-column="9" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
@@ -352,7 +353,7 @@
       <workItem from="1573917772377" duration="2372000" />
       <workItem from="1573923742408" duration="30109000" />
       <workItem from="1574072986987" duration="3673000" />
-      <workItem from="1574281390960" duration="29313000" />
+      <workItem from="1574281390960" duration="29537000" />
     </task>
     <task id="LOCAL-00001" summary="lab 2">
       <created>1574084187439</created>
@@ -407,7 +408,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102750000" />
+    <option name="totallyTimeSpent" value="102974000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -420,7 +421,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -671,8 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="383" column="64" selection-start-line="383" selection-start-column="64" selection-end-line="383" selection-end-column="64" />
+        <state relative-caret-position="90">
+          <caret line="384" column="9" lean-forward="true" selection-start-line="384" selection-start-column="9" selection-end-line="384" selection-end-column="9" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
