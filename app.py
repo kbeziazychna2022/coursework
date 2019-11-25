@@ -427,7 +427,7 @@ def edit_Client():
 def edit_Country():
     form = EditCountry()
     name = request.args.get('name')
-    country = db.session.query (ormCountry).filter (ormCountry.name == name).one ()
+    country = db.session.query (ormCountry).filter (ormCountry.name == name).one()
 
     if request.method == 'GET':
 
@@ -448,16 +448,13 @@ def edit_Country():
             return render_template('editCountry.html', form=form, form_name="Edit Country", action="update")
         else:
 
-            var = db.session.query(ormCountry).filter(ormCountry.name == name).one()
-            print(var)
+          # update fields from form data
 
-            # update fields from form data
-
-            var.name = form.name.data
-            var.population = form.population.data
-            var.goverment = form.goverment.data
-            var.location = form.location.data
-            var.client_documents = form.client_documents.data
+            country.name = form.name.data
+            country.population = form.population.data
+            country.goverment = form.goverment.data
+            country.location = form.location.data
+            country.client_documents = form.client_documents.data
             db.session.commit()
 
             return redirect(url_for('all_Country'))
