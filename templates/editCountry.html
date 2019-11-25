@@ -29,24 +29,48 @@
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.place_site.label }}
-                        {{ form.place_site(class_="form-control") }}
+                        {{ form.population.label }}
+                        {{ form.population(class_="form-control") }}
 
-                        {% if form.place_site.errors %}
+                        {% if form.population.errors %}
                             <div class="alert alert-danger" role="alert">
-                                {% for message in form.place_site.errors %}
+                                {% for message in form.population.errors %}
                                     <div>{{ message }}</div>
                                 {% endfor %}
                             </div>
                         {% endif %}
                     </div>
                     <div class="form-group">
-                        {{ form.type_of_service.label }}
-                        {{ form.type_of_service(class_="form-control") }}
+                        {{ form.goverment.label }}
+                        {{ form.goverment(class_="form-control") }}
 
-                        {% if form.type_of_service.errors %}
+                        {% if form.goverment.errors %}
                             <div class="alert alert-danger" role="alert">
-                                {% for message in form.type_of_service.errors %}
+                                {% for message in form.goverment.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.location.label }}
+                        {{ form.location(class_="form-control") }}
+
+                        {% if form.location.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.location.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.client_documents.label }}
+                        {{ form.client_documents(class_="form-control") }}
+
+                        {% if form.client_documents.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.client_documents.errors %}
                                     <div>{{ message }}</div>
                                 {% endfor %}
                             </div>
