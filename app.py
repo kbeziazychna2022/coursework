@@ -389,10 +389,8 @@ def delete_Schedule():
 def edit_Client():
     form = EditClient()
     client_documents = request.args.get('client_documents')
+    client = db.session.query (ormClient).filter (ormClient.client_documents == client_documents).one ()
     if request.method == 'GET':
-
-        client = db.session.query(ormClient).filter(ormClient.client_documents == client_documents).one()
-
         form.place_name.data = client.place_name
         form.client_fullname.data = client.client_fullname
         form.client_documents.data = client.client_documents
@@ -448,13 +446,16 @@ def edit_Country():
             return render_template('editCountry.html', form=form, form_name="Edit Country", action="update")
         else:
 
-          # update fields from form data
+            var = db.session.query(ormCountry).filter(ormCountry.name == name).one()
+            print(var)
 
-            country.name = form.name.data
-            country.population = form.population.data
-            country.goverment = form.goverment.data
-            country.location = form.location.data
-            country.client_documents = form.client_documents.data
+            # update fields from form data
+
+            var.name = form.name.data
+            var.population = form.population.data
+            var.goverment = form.goverment.data
+            var.location = form.location.data
+            var.client_documents = form.client_documents.data
             db.session.commit()
 
             return redirect(url_for('all_Country'))
@@ -464,9 +465,8 @@ def edit_Country():
 def edit_Place():
     form = EditPlace()
     place_name = request.args.get('place_name')
+    place = db.session.query (ormPlace).filter (ormPlace.place_name == place_name).one ()
     if request.method == 'GET':
-
-        place = db.session.query(ormPlace).filter(ormPlace.place_name == place_name).one()
 
         form.place_name.data = place.place_name
         form.place_site.data = place.place_site
@@ -497,9 +497,8 @@ def edit_Place():
 def edit_Schedule():
     form = EditSchedule()
     date = request.args.get ('date')
+    schedule = db.session.query (ormSchedule).filter (ormSchedule.date == date).one ()
     if request.method == 'GET':
-
-        schedule = db.session.query (ormSchedule).filter (ormSchedule.date == date).one ()
 
         form.date.data = schedule.date
         form.time_in_queue.data = schedule.time_in_queue
@@ -531,9 +530,8 @@ def edit_Schedule():
 def edit_Queue():
     form = EditQueue()
     queue_name = request.args.get ('queue_name')
+    queue = db.session.query (ormQueue).filter (ormQueue.queue_name == queue_name).one ()
     if request.method == 'GET':
-
-        queue = db.session.query (ormQueue).filter (ormQueue.queue_name == queue_name).one ()
 
         form.date.data = queue.date
         form.place_name.data = queue.place_name
