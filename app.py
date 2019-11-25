@@ -84,10 +84,7 @@ class ormCountry(db.Model):
     client_documents = db.Column(db.String(40), db.ForeignKey('client.client_documents'))
 
 
-db.session.query(ormClient).delete()
-db.session.query(ormPlace).delete()
-db.session.query(ormQueue).delete()
-db.session.query(ormSchedule).delete()
+
 Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
 Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
 Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
