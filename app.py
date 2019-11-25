@@ -72,6 +72,7 @@ class ormSchedule(db.Model):
     time_in_queue = db.Column(db.Time, nullable=False)
     push_notification = db.Column(db.String(40), nullable=False)
     queue = db.relationship("ormQueue")
+    clients = db.relationship("ormClient")
 
 class ormCountry(db.Model):
     __tablename__ = 'country'
@@ -81,7 +82,7 @@ class ormCountry(db.Model):
     goverment = db.Column (db.String (40),nullable=False)
     location = db.Column(db.String(),nullable=False)
     client_documents = db.Column(db.String(40), db.ForeignKey('client.client_documents'))
-'''
+
 Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
 Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
 Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
@@ -94,19 +95,24 @@ Queue3 = ormQueue(date = '2019-08-09', place_name = 'Work', queue_name = 'Queue3
 Schedule1 = ormSchedule(date = '2019-12-21', time_in_queue = '00:15', push_notification = 'your queue1')
 Schedule2 = ormSchedule(date = '2019-11-12', time_in_queue = '00:11', push_notification = 'your queue2' )
 Schedule3 = ormSchedule(date = '2019-08-09', time_in_queue = '00:09', push_notification = 'your queue3')
-Country1 = ormCountry (name='Ukraine', population=45342344, goverment='Goverment1', location='123.23.23, 52.45.67', client_documents='HR129083')
-Country2 = ormCountry (name='Germany', population=43456789, goverment='Goverment2', location='134.12.45, 23.12.56', client_documents='HR453209')
-Country3 = ormCountry (name='Norway', population=12342344, goverment='Goverment3', location='23.12.43, 45.45.78', client_documents='HR675408')
 Place1.client.append(Client1)
 Place2.client.append(Client2)
 Place3.client.append(Client3)
-db.session.add_all ([Country1, Country2, Country3])
+Place1.queues.append(Queue1)
+Place2.queues.append(Queue2)
+Place3.queues.append(Queue3)
+Schedule1.queue.append(Queue1)
+Schedule2.queue.append(Queue2)
+Schedule3.queue.append(Queue3)
+Schedule1.clients.append(Client1)
+Schedule2.clients.append(Client2)
+Schedule3.clients.append(Client3)
 db.session.add_all([Client1,Client2,Client3])
 db.session.add_all([Place1,Place2,Place3])
 db.session.add_all([Queue1,Queue2,Queue3])
 db.session.add_all([Schedule1,Schedule2,Schedule3])
 db.session.commit()
-'''
+
 @app.route('/')
 def index():
     return render_template('main.html', action="/")
