@@ -84,26 +84,11 @@ class ormCountry(db.Model):
     client_documents = db.Column(db.String(40), db.ForeignKey('client.client_documents'))
 
 
-Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
-Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
-Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
-Place1 =ormPlace(place_name = 'Library', place_site = 'library@gmail.com', type_of_service='booking book ...')
-Place2 =ormPlace(place_name = 'Airport', place_site = 'hotel@gmail.com', type_of_service='booking room ...')
-Place3 =ormPlace(place_name = 'Work', place_site = 'mc@gmail.com', type_of_service='dr. Mart ...')
-Queue1 = ormQueue(date = '2019-12-21', place_name = 'Library', queue_name = 'Queue1', queue_number = 23, number_of_people = 45, waiting_time ='14:00')
-Queue2 = ormQueue(date = '2019-11-12', place_name = 'Airport', queue_name = 'Queue2', queue_number = 2, number_of_people = 23, waiting_time ='10:00')
-Queue3 = ormQueue(date = '2019-08-09', place_name = 'Work', queue_name = 'Queue3', queue_number = 46, number_of_people = 192, waiting_time ='22:00')
-Schedule1 = ormSchedule(date = '2019-12-21', time_in_queue = '00:15', push_notification = 'your queue1')
-Schedule2 = ormSchedule(date = '2019-11-12', time_in_queue = '00:11', push_notification = 'your queue2' )
-Schedule3 = ormSchedule(date = '2019-08-09', time_in_queue = '00:09', push_notification = 'your queue3')
 Country1 = ormCountry (name='Ukraine', population=45342344, goverment='Goverment1', location='123.23.23, 52.45.67', client_documents='HR129083')
 Country2 = ormCountry (name='Germany', population=43456789, goverment='Goverment2', location='134.12.45, 23.12.56', client_documents='HR453209')
 Country3 = ormCountry (name='Norway', population=12342344, goverment='Goverment3', location='23.12.43, 45.45.78', client_documents='HR675408')
 db.session.add_all ([Country1, Country2, Country3])
-db.session.add_all([Client1,Client2,Client3])
-db.session.add_all([Place1,Place2,Place3])
-db.session.add_all([Queue1,Queue2,Queue3])
-db.session.add_all([Schedule1,Schedule2,Schedule3])
+
 
 
 @app.route('/')
