@@ -4,7 +4,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
 
-from form import Country
+
 from form.Queue import CreateQueue, EditQueue
 import plotly
 import plotly.graph_objs as go
@@ -14,16 +14,7 @@ from form.Schedule import CreateSchedule, EditSchedule
 from form.Country import EditCountry, CreateCountry
 
 app = Flask(__name__)
-
-ENV = 'prod'
-
-if ENV == 'dev':
-    app.debug = True
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:modern23@localhost/Kate'
-else:
-    app.debug = False
-    app.config[
-        'SQLALCHEMY_DATABASE_URI'] = ' postgres://hdmhkojlvupbua:3e8e86c33ca12993ff01f678521db58946852e7f62a1b81ef426b0d47b77dcf2@ec2-107-22-195-114.compute-1.amazonaws.com:5432/d7bcgb4qoh1ddg'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:modern23@localhost/Kate'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 SECRET_KEY = os.urandom(32)
@@ -39,8 +30,8 @@ class ormPlace(db.Model):
     place_name = db.Column(db.String(40), primary_key=True)
     place_site = db.Column(db.String(40), nullable=False)
     type_of_service = db.Column(db.String(40), nullable=False)
-    #client = relationship("ormClient", back_populates="place")
-    #queues = relationship("ormQueue", back_populates="place")
+    client = db.relationship("ormClient")
+    queues = db.relationship("ormQueue")
 
 class ormClient(db.Model):
     __tablename__ = 'client'
@@ -49,8 +40,7 @@ class ormClient(db.Model):
     client_documents = db.Column(db.String(40), primary_key=True)
     place_name = db.Column (db.String (40), db.ForeignKey('place.place_name'))
     date = db.Column(db.Date, db.ForeignKey('schedule.date'))
-    #places = relationship("ormPlace", back_populates="client")
-    #schedule = relationship("ormSchedule", back_populates="client")
+    country = db.relationship("ormCountry")
 
 class ormQueue(db.Model):
     __tablename__ = 'queue'
@@ -61,9 +51,6 @@ class ormQueue(db.Model):
     queue_number = db.Column(db.Integer, nullable=False)
     number_of_people = db.Column(db.Integer, nullable=False)
     waiting_time = db.Column(db.Time, nullable=False)
-    #place = relationship("ormPlace", back_populates="queue")
-    #schedule_fk = relationship("ormSchedule", back_populates="queue")
-
 
 class ormSchedule(db.Model):
     __tablename__ = 'schedule'
@@ -71,8 +58,7 @@ class ormSchedule(db.Model):
     date = db.Column (db.Date, primary_key=True)
     time_in_queue = db.Column(db.Time, nullable=False)
     push_notification = db.Column(db.String(40), nullable=False)
-    #client_fk = relationship("ormClient", uselist=False, back_populates="schedule")
-    #queue_fk = relationship("ormQueue", back_populates="schedule")
+    queue = db.relationship("ormQueue")
 
 class ormCountry(db.Model):
     __tablename__ = 'country'
@@ -82,8 +68,7 @@ class ormCountry(db.Model):
     goverment = db.Column (db.String (40),nullable=False)
     location = db.Column(db.String(),nullable=False)
     client_documents = db.Column(db.String(40), db.ForeignKey('client.client_documents'))
-
-
+'''
 Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
 Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
 Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
@@ -99,13 +84,16 @@ Schedule3 = ormSchedule(date = '2019-08-09', time_in_queue = '00:09', push_notif
 Country1 = ormCountry (name='Ukraine', population=45342344, goverment='Goverment1', location='123.23.23, 52.45.67', client_documents='HR129083')
 Country2 = ormCountry (name='Germany', population=43456789, goverment='Goverment2', location='134.12.45, 23.12.56', client_documents='HR453209')
 Country3 = ormCountry (name='Norway', population=12342344, goverment='Goverment3', location='23.12.43, 45.45.78', client_documents='HR675408')
+Place1.client.append(Client1)
+Place2.client.append(Client2)
+Place3.client.append(Client3)
 db.session.add_all ([Country1, Country2, Country3])
 db.session.add_all([Client1,Client2,Client3])
 db.session.add_all([Place1,Place2,Place3])
 db.session.add_all([Queue1,Queue2,Queue3])
 db.session.add_all([Schedule1,Schedule2,Schedule3])
-
-
+db.session.commit()
+'''
 @app.route('/')
 def index():
     return render_template('main.html', action="/")
@@ -255,24 +243,26 @@ def create_Country():
             return render_template('CreateCountry.html', form=form, form_name="New Country", action="createCountry")
         else:
 
-            ids = db.session.query(ormSchedule).all()
+            ids = db.session.query(ormCountry).all()
             check = True
             for row in ids:
-                if row.date == form.date.data:
+                if row.name == form.name.data:
                     check = False
 
-            new_var = ormSchedule(
-                date=form.date.data,
-                time_in_queue=form.time_in_queue.data,
-                push_notification=form.push_notification.data
+            new_var = ormCountry(
+                name=form.name.data,
+                population=form.population.data,
+                goverment=form.goverment.data,
+                location=form.location.data,
+                client_documents=form.client_documents.data
 
             )
             if check:
                 db.session.add(new_var)
                 db.session.commit()
-                return redirect(url_for('all_Schedule'))
+                return redirect(url_for('all_Country'))
 
-    return render_template('CreateSchedule.html', form=form, form_name="New Schedule", action="createSchedule")
+    return render_template('CreateCountry.html', form=form, form_name="New Country", action="createCountry")
 
 @app.route('/createQueue', methods=['GET', 'POST'])
 def create_Queue():
@@ -327,6 +317,17 @@ def delete_Queue():
 
     return redirect(url_for('all_Queue'))
 
+
+@app.route('/deleteCountry', methods=['GET'])
+def delete_Country():
+    name = request.args.get('name')
+
+    result = db.session.query(ormCountry).filter(ormCountry.name == name).one()
+
+    db.session.delete(result)
+    db.session.commit()
+
+    return redirect(url_for('all_Country'))
 
 @app.route('/deletePlace', methods=['GET'])
 def delete_Place():
@@ -398,20 +399,20 @@ def edit_Country():
         country = db.session.query(ormCountry).filter(ormCountry.name == name).one()
 
         form.name.data = country.name
-        form.popultion.data = country.population
+        form.population.data = country.population
         form.goverment.data = country.goverment
         form.location.data = country.location
         form.client_documents.data = country.client_documents
 
 
         return render_template('editCountry.html', form=form, form_name="Edit Country",
-                               action="editCountry?name=" + country.name)
+                               action="update?name=" + country.name)
 
 
     else:
 
         if not form.validate():
-            return render_template('editCountry.html', form=form, form_name="Edit Country", action="editCountry")
+            return render_template('editCountry.html', form=form, form_name="Edit Country", action="update")
         else:
 
             var = db.session.query(ormCountry).filter(ormCountry.name == name).one()
@@ -420,7 +421,7 @@ def edit_Country():
             # update fields from form data
 
             var.name = form.name.data
-            var.population = form.popultion.data
+            var.population = form.population.data
             var.goverment = form.goverment.data
             var.location = form.location.data
             var.client_documents = form.client_documents.data
@@ -548,7 +549,7 @@ def dashboard():
         db.session.query (
             ormCountry.name,
             ormCountry.population
-        ).group_by (ormQueue.name)
+        ).group_by (ormCountry.name)
     ).all ()
 
     query = (
@@ -573,8 +574,8 @@ def dashboard():
     name, population = zip (*query2)
 
     bar1 = go.Bar (
-        x=population,
-        y=name
+        x=name,
+        y=population
     )
     print(place_name, count)
     print(queue_name, number_of_people)
