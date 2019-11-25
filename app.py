@@ -113,7 +113,7 @@ db.session.add_all([Client1,Client2,Client3])
 db.session.add_all([Place1,Place2,Place3])
 db.session.add_all([Queue1,Queue2,Queue3])
 db.session.add_all([Schedule1,Schedule2,Schedule3])
-db.session.commit()
+
 
 @app.route('/')
 def index():
