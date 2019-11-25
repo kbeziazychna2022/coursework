@@ -429,7 +429,7 @@ def edit_Country():
     name = request.args.get('name')
     if request.method == 'GET':
 
-        country = db.session.query(ormCountry).filter(ormCountry.name == name).first()
+        country = db.session.query(ormCountry).filter(ormCountry.name == name).one_or_none()
 
         form.name.data = country.name
         form.population.data = country.population
