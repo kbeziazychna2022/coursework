@@ -32,6 +32,7 @@
           <option value="source.populate.ormmodel" />
           <option value="form.Client.client_fullname" />
           <option value="form.Place.place_name" />
+          <option value="app.name" />
         </list>
       </option>
     </inspection_tool>

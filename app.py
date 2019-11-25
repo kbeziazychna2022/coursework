@@ -3,12 +3,15 @@ import json
 import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
+
+from form import Country
 from form.Queue import CreateQueue, EditQueue
 import plotly
 import plotly.graph_objs as go
 from form.Client import EditClient, CreateClient
 from form.Place import CreatePlace, EditPlace
 from form.Schedule import CreateSchedule, EditSchedule
+from form.Country import EditCountry, CreateCountry
 
 app = Flask(__name__)
 
@@ -72,6 +75,16 @@ class ormSchedule(db.Model):
     #client_fk = relationship("ormClient", uselist=False, back_populates="schedule")
     #queue_fk = relationship("ormQueue", back_populates="schedule")
 
+class ormCountry(db.Model):
+    __tablename__ = 'country'
+
+    name = db.Column(db.String(40),primary_key=True)
+    population = db.Column(db.Integer(),nullable=False)
+    goverment = db.Column (db.String (40),nullable=False)
+    location = db.Column(db.String(),nullable=False)
+    client_documents = db.Column(db.String(40), db.ForeignKey('client.client_documents'))
+
+
 Client1 = ormClient(client_fullname = 'Natalia Kim', client_documents = 'HR129083' ,place_name = 'Library', date = '2019-12-21')
 Client2 = ormClient(client_fullname = 'Alisha Layne', client_documents = 'HR453209' ,place_name = 'Airport', date = '2019-11-12')
 Client3 = ormClient(client_fullname = 'Harry Styles', client_documents = 'HR675408' ,place_name = 'Work', date = '2019-08-09r')
@@ -84,11 +97,11 @@ Queue3 = ormQueue(date = '2019-08-09', place_name = 'Work', queue_name = 'Queue3
 Schedule1 = ormSchedule(date = '2019-12-21', time_in_queue = '00:15', push_notification = 'your queue1')
 Schedule2 = ormSchedule(date = '2019-11-12', time_in_queue = '00:11', push_notification = 'your queue2' )
 Schedule3 = ormSchedule(date = '2019-08-09', time_in_queue = '00:09', push_notification = 'your queue3')
+
 db.session.add_all([Client1,Client2,Client3])
 db.session.add_all([Place1,Place2,Place3])
 db.session.add_all([Queue1,Queue2,Queue3])
 db.session.add_all([Schedule1,Schedule2,Schedule3])
-
 
 
 @app.route('/')
@@ -115,6 +128,25 @@ def all_Place():
         Place.append({"place_name": row.place_name, "place_site": row.place_site, "type_of_service": row.type_of_service})
     return render_template('allPlace.html', name=name, Place=Place, action="/Place")
 
+@app.route('/get')
+def insert():
+    Country1 = ormCountry (name='Ukraine', population=45342344, goverment='Goverment1', location='123.23.23, 52.45.67')
+    Country2 = ormCountry (name='Germany', population=43456789, goverment='Goverment2', location='134.12.45, 23.12.56')
+    Country3 = ormCountry (name='Norway', population=12342344, goverment='Goverment3', location='23.12.43, 45.45.78')
+    db.session.add_all ([Country1, Country2, Country3])
+
+    return render_template ('allCountry.html', name=name, Country=Country, action="/get")
+
+
+@app.route('/insert')
+def all_Country():
+    name = "Country"
+
+    Country_db = db.session.query(ormCountry).all()
+    Country = []
+    for row in Country_db:
+        Country.append({"name": row.name, "population": row.population, "goverment": row.goverment, "location": row.location,"client_documents": row.client_documents})
+    return render_template('allCountry.html', name=name, Country=Country, action="/insert")
 
 @app.route('/Queue')
 def all_Queue():
@@ -335,6 +367,46 @@ def edit_Client():
             return redirect(url_for('all_Client'))
 
 
+@app.route('/update', methods=['GET', 'POST'])
+def edit_Country():
+    form = EditCountry()
+    name = request.args.get('name')
+    if request.method == 'GET':
+
+        country = db.session.query(ormCountry).filter(ormCountry.name == name).one()
+
+        form.name.data = country.name
+        form.popultion.data = country.population
+        form.goverment.data = country.goverment
+        form.location.data = country.location
+        form.client_documents.data = country.client_documents
+
+
+        return render_template('editCountry.html', form=form, form_name="Edit Country",
+                               action="editCountry?name=" + country.name)
+
+
+    else:
+
+        if not form.validate():
+            return render_template('editCountry.html', form=form, form_name="Edit Country", action="editCountry")
+        else:
+
+            var = db.session.query(ormCountry).filter(ormCountry.name == name).one()
+            print(var)
+
+            # update fields from form data
+
+            var.name = form.name.data
+            var.population = form.popultion.data
+            var.goverment = form.goverment.data
+            var.location = form.location.data
+            var.client_documents = form.client_documents.data
+            db.session.commit()
+
+            return redirect(url_for('all_Country'))
+
+
 @app.route('/editPlace', methods=['GET', 'POST'])
 def edit_Place():
     form = EditPlace()
@@ -441,7 +513,7 @@ def edit_Queue():
             return redirect (url_for ('all_Queue'))
 
 
-@app.route('/Dashboard')
+@app.route('/plot')
 def dashboard():
     query1 = (
         db.session.query(
@@ -449,6 +521,13 @@ def dashboard():
             ormQueue.queue_name
         ).group_by(ormQueue.queue_name)
     ).all()
+
+    query2 = (
+        db.session.query (
+            ormCountry.name,
+            ormCountry.population
+        ).group_by (ormQueue.name)
+    ).all ()
 
     query = (
         db.session.query(
@@ -468,12 +547,20 @@ def dashboard():
         labels=queue_name,
         values=number_of_people
     )
+
+    name, population = zip (*query2)
+
+    bar1 = go.Bar (
+        x=population,
+        y=name
+    )
     print(place_name, count)
     print(queue_name, number_of_people)
-
+    print (name, population)
     data = {
         "bar": [bar],
-        "pie": [pie]
+        "pie": [pie],
+        "bar1": [bar1]
     }
     graphsJSON = json.dumps(data, cls=plotly.utils.PlotlyJSONEncoder)
 
