@@ -126,7 +126,7 @@ def get():
     db.session.add_all([C1, C2, C3])
     db.session.commit()
 
-    return render_template('main.html', action="/get")
+    return render_template('main.html', action="/")
 
 @app.route('/Client')
 def all_Client():
