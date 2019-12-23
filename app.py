@@ -152,6 +152,17 @@ def all_Place():
 
 @app.route('/insert')
 def all_Country():
+    db.session.query (ormCountry).delete ()
+    C1 = ormCountry (name="Italy", population=30234567, goverment='Goverment4', location='22.34.55,23.45.67',
+                     client_documents='HT213478')
+    C2 = ormCountry (name="Spain", population=1200003, goverment='Goverment5', location='22.00.55,98.45.67',
+                     client_documents='HE231456')
+    C3 = ormCountry (name="Ukraine", population=764321, goverment='Goverment6', location='23.34.55,76.45.67',
+                     client_documents='HR129083')
+
+    db.session.add_all ([C1, C2, C3])
+    db.session.commit ()
+
     name = "Country"
 
     Country_db = db.session.query(ormCountry).all()
