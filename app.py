@@ -3,8 +3,6 @@ import json
 import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import func
-
-
 from form.Queue import CreateQueue, EditQueue
 import plotly
 import plotly.graph_objs as go
@@ -24,7 +22,7 @@ if ENV == 'dev':
 else:
     app.debug = False
     app.config[
-        'SQLALCHEMY_DATABASE_URI'] = 'postgres://olybrqlidxaxav:2eb0145422dfcbfbb9a7eebe63b33e020faf436668263d8fe5361d4f0d30ec33@ec2-23-21-70-39.compute-1.amazonaws.com:5432/d4bmafbki74av3'
+        'SQLALCHEMY_DATABASE_URI'] = 'postgres://ajjmpfrdoqcwmk:e25f4619f12bf07b8d859269636062939dcee7d6f8334368c5a31e25d28a10fc@ec2-174-129-33-132.compute-1.amazonaws.com:5432/d562vtttjihdv'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -129,7 +127,7 @@ def get():
     db.session.add_all([C1, C2, C3])
     db.session.commit()
 
-    return redirect('/insert')
+    return redirect('/')
 
 @app.route('/Client')
 def all_Client():
