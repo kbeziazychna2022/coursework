@@ -127,7 +127,7 @@ def get():
     db.session.add_all([C1, C2, C3])
     db.session.commit()
 
-    return redirect('/insert')
+    return render_template('allCountry.html', action="/insert")
 
 @app.route('/Client')
 def all_Client():
