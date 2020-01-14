@@ -2,7 +2,23 @@
 
 {% block content %}
 <style>
-    table {
+button {
+  display: inline-block;
+  padding: 9px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+}
+
+button:hover {background-color: #3e8e41}
+
+table {
 
 text-align: left;
 border-collapse: separate;
@@ -45,13 +61,13 @@ padding: 10px;
                             <td class="pt-3-half" contenteditable="true">{{row.date}}</td>
                             <td class="pt-3-half" contenteditable="true">{{row.push_notification}}</td>
                             <td>
-                                <span class="table-delete" ><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" >
-                                    <a href="https://labwork21.herokuapp.com/editSchedule?date={{ row.date }}">Edit</a></button></span>
+                                <span class="table-delete" ><button type="button" class="button" >
+                                    <a href="http://127.0.0.1:5000/editSchedule?date={{ row.date }}">Edit</a></button></span>
                             </td>
                             <td>
                                 <span class="table-delete"><button type="button"
-                                                                   class="btn btn-danger btn-rounded btn-sm my-0" >
-                                    <a href="https://labwork21.herokuapp.com/deleteSchedule?date={{ row.date }}">Delete</a></button></span>
+                                                                   class="button" >
+                                    <a href="http://127.0.0.1:5000/deleteSchedule?date={{ row.date }}">Delete</a></button></span>
                             </td>
                         </tr>
                     {% endfor %}
@@ -60,8 +76,8 @@ padding: 10px;
 
                     </tbody>
                 </table>
-            <span class="table-delete"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0" allign="center">
-                                    <a href="https://labwork21.herokuapp.com/createSchedule">Create</a></button></span>
+            <span class="table-delete"><button type="button" class="button" allign="center">
+                                    <a href="http://127.0.0.1:5000/createSchedule">Create</a></button></span>
             </div>
         </div>
     </div>

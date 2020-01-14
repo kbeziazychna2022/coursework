@@ -6,7 +6,6 @@ from wtforms import validators
 def valid(FlaskForm, field):
     if int (field.data) <= 1000:
         raise ValidationError ('Only more than 1000')
-
 class EditCountry (FlaskForm):
     name = StringField("name: ", [
         validators.DataRequired("Please enter name."),

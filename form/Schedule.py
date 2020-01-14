@@ -5,16 +5,17 @@ from wtforms import validators
 
 class CreateSchedule (FlaskForm):
     time_in_queue = TimeField ("time: ", [
-        validators.DataRequired ("Please enter your time.")
+        validators.DataRequired ("Please enter your time in format xx:xx.")
 
     ])
 
     date = DateField ("date: ", [
-        validators.DataRequired ("Please enter date.")
+        validators.DataRequired ("Please enter date in format xxxx-xx-xx.")
 
     ])
     push_notification = StringField ("not: ", [
-        validators.DataRequired ("Please enter your not.")
+        validators.DataRequired ("Please enter your not."),
+        validators.Length (0, 50, "0<notification<50 .")
     ])
 
     submit = SubmitField ("Save")
@@ -23,16 +24,12 @@ class CreateSchedule (FlaskForm):
 
 class EditSchedule (FlaskForm):
     time_in_queue = TimeField ("time: ", [
-        validators.DataRequired ("Please enter your time.")
-
-    ])
-
-    date = DateField ("date: ", [
-        validators.DataRequired ("Please enter date.")
+        validators.DataRequired ("Please enter your time in format xx:xx.")
 
     ])
     push_notification = StringField ("not: ", [
-        validators.DataRequired ("Please enter your not.")
+        validators.DataRequired ("Please enter your not."),
+        validators.Length (0, 50, "0<notification<50 .")
     ])
 
     submit = SubmitField ("Save")

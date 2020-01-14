@@ -5,17 +5,19 @@ from wtforms import validators
 
 class CreateQueue (FlaskForm):
     date = DateField ("date: ", [
-        validators.DataRequired ("Please enter date.")
+        validators.DataRequired ("Please enter date in format yyyy-mm-dd.")
 
     ])
 
     place_name = StringField ("place_name: ", [
-        validators.DataRequired ("Please enter place_name.")
+        validators.DataRequired ("Please enter place_name."),
+        validators.Length(0,15, "0<place name<15")
 
     ])
 
     queue_name = StringField ("queue_name: ", [
-        validators.DataRequired ("Please enter queue name.")
+        validators.DataRequired ("Please enter queue name."),
+        validators.Length (0, 15, "0<queue name<15")
 
     ])
     queue_number = IntegerField ("queue_number: ", [
@@ -27,7 +29,7 @@ class CreateQueue (FlaskForm):
 
     ])
     waiting_time = TimeField ("waititng_time: ", [
-        validators.DataRequired ("Please enter waiting_time.")
+        validators.DataRequired ("Please enter waiting_time in format xx:xx.")
 
     ])
 
@@ -36,17 +38,19 @@ class CreateQueue (FlaskForm):
 
 class EditQueue (FlaskForm):
     date = DateField ("date: ", [
-        validators.DataRequired ("Please enter date.")
+        validators.DataRequired ("Please enter date in format yyyy-mm-dd.")
 
     ])
 
     place_name = StringField ("place_name: ", [
-        validators.DataRequired ("Please enter place_name.")
+        validators.DataRequired ("Please enter place_name."),
+        validators.Length(0,15, "0<place name<15")
 
     ])
 
     queue_name = StringField ("queue_name: ", [
-        validators.DataRequired ("Please enter queue name.")
+        validators.DataRequired ("Please enter queue name."),
+        validators.Length (0, 15, "0<queue name<15")
 
     ])
     queue_number = IntegerField ("queue_number: ", [
@@ -58,8 +62,7 @@ class EditQueue (FlaskForm):
 
     ])
     waiting_time = TimeField ("waititng_time: ", [
-        validators.DataRequired ("Please enter waiting_time.")
+        validators.DataRequired ("Please enter waiting_time in format xx:xx.")
 
     ])
-
     submit = SubmitField ("Save")

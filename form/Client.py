@@ -5,9 +5,8 @@ from wtforms import validators
 
 class EditClient (FlaskForm):
     place_name = StringField("place_name: ", [
-        validators.DataRequired("Please enter place name.")
-
-    ])
+        validators.DataRequired("Please enter place name."),
+        validators.Length(0,15, "0<place name<15")])
 
     client_fullname = StringField("client_fullname: ", [
         validators.DataRequired("Please enter your info.")
@@ -19,7 +18,7 @@ class EditClient (FlaskForm):
 
     ])
     date = DateField("date: ", [
-        validators.DataRequired("Please enter date.")
+        validators.DataRequired("Please enter date in format yyyy-mm-dd.")
 
     ])
     submit = SubmitField("Save")
@@ -27,9 +26,8 @@ class EditClient (FlaskForm):
 
 class CreateClient (FlaskForm):
     place_name = StringField("place_name: ", [
-        validators.DataRequired("Please enter place name.")
-
-    ])
+        validators.DataRequired("Please enter place name."),
+        validators.Length(0,15, "0<place name<15")])
 
     client_fullname = StringField("client_fullname: ", [
         validators.DataRequired("Please enter your info.")
@@ -41,9 +39,8 @@ class CreateClient (FlaskForm):
 
     ])
     date = DateField("date: ", [
-        validators.DataRequired("Please enter date.")
+        validators.DataRequired("Please enter date in format yyyy-mm-dd.")
 
     ])
-
     submit = SubmitField("Save")
 

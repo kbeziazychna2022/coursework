@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ name }}</h3>
+    <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+              class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+                </table>
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ name2 }}</h3>
+<span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+              class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+        {% for table in table %}
+            {{ table|safe }}
+        {% endfor %}
+                </table>
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ name3 }}</h3>
+<h3 class="card-header text-center font-weight-bold text-uppercase py-4">{{ error }}</h3>
+
+</div>
+{% endblock %}
