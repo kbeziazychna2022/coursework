@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a9edbb8-9d87-4874-b9d1-d2f0f0309153" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/Client.py" beforeDir="false" afterPath="$PROJECT_DIR$/form/Client.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/Country.py" beforeDir="false" afterPath="$PROJECT_DIR$/form/Country.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/Place.py" beforeDir="false" afterPath="$PROJECT_DIR$/form/Place.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/Queue.py" beforeDir="false" afterPath="$PROJECT_DIR$/form/Queue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/Schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/form/Schedule.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CreateCountry.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/CreatePlace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/CreatePlace.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/EditSchedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/EditSchedule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allClient.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allClient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allCountry.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allPlace.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allPlace.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allQueue.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allQueue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/allSchedule.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/allSchedule.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/editCountry.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/kate/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/kate/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,11 +36,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="28" column="186" lean-forward="true" selection-start-line="28" selection-start-column="186" selection-end-line="28" selection-end-column="186" />
-              <folding>
-                <element signature="e#0#68#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="161">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -128,7 +114,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/runtime.txt" />
         <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/source/db.py" />
         <option value="$PROJECT_DIR$/venv/kate/Lib/site-packages/flask_sqlalchemy/__init__.py" />
         <option value="$PROJECT_DIR$/templates/EditClient.html" />
@@ -154,10 +139,11 @@
         <option value="$PROJECT_DIR$/claim.json" />
         <option value="$PROJECT_DIR$/push_notificaion.py" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="108" />
     <option name="y" value="75" />
     <option name="width" value="634" />
@@ -171,6 +157,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,7 +169,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -374,7 +360,8 @@
       <workItem from="1578252582973" duration="17475000" />
       <workItem from="1578335228653" duration="2956000" />
       <workItem from="1579007233139" duration="946000" />
-      <workItem from="1579031341673" duration="1233000" />
+      <workItem from="1579031341673" duration="2003000" />
+      <workItem from="1579034862985" duration="191000" />
     </task>
     <task id="LOCAL-00001" summary="lab 2">
       <created>1574084187439</created>
@@ -485,7 +472,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194147000" />
+    <option name="totallyTimeSpent" value="195108000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -497,11 +484,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.09304085" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.09455371" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40425533" />
@@ -513,7 +501,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.24386252" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.09328969" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="SVN Repositories" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -587,13 +575,6 @@
         <state split_layout="SPLIT">
           <first_editor />
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -800,6 +781,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="15" selection-end-line="16" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/private_key.pem">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -807,16 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="23" selection-start-column="23" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="28" column="186" lean-forward="true" selection-start-line="28" selection-start-column="186" selection-end-line="28" selection-end-column="186" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
