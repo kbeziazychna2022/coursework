@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a9edbb8-9d87-4874-b9d1-d2f0f0309153" name="Default Changelist" comment="" />
+    <list default="true" id="5a9edbb8-9d87-4874-b9d1-d2f0f0309153" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
+            <state relative-caret-position="21">
               <caret line="249" column="32" lean-forward="true" selection-start-line="249" selection-start-column="32" selection-end-line="249" selection-end-column="32" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
@@ -423,7 +425,7 @@
       <workItem from="1578335228653" duration="2956000" />
       <workItem from="1579007233139" duration="946000" />
       <workItem from="1579031341673" duration="2003000" />
-      <workItem from="1579034862985" duration="5918000" />
+      <workItem from="1579034862985" duration="7571000" />
     </task>
     <task id="LOCAL-00001" summary="lab 2">
       <created>1574084187439</created>
@@ -534,7 +536,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200835000" />
+    <option name="totallyTimeSpent" value="202488000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -562,7 +564,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3584288" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.95090014" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="bottom" id="SVN Repositories" order="13" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -861,7 +863,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
+        <state relative-caret-position="21">
           <caret line="249" column="32" lean-forward="true" selection-start-line="249" selection-start-column="32" selection-end-line="249" selection-end-column="32" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
